@@ -2003,6 +2003,142 @@ section {
   .admin-container {
     padding: 1rem;
   }
+
+  /* Admin Tab Buttons Mobile */
+  .admin-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .admin-tabs button,
+  .tab-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  /* Admin Header Mobile */
+  .admin-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .admin-header p {
+    font-size: 0.9rem;
+  }
+
+  /* Admin Stats Mobile */
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-card .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .stat-card .stat-label {
+    font-size: 0.75rem;
+  }
+
+  /* Sessions Filters Mobile */
+  .sessions-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-group select {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .sessions-filters .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Sessions Stats Pills Mobile */
+  .sessions-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-pill {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    justify-content: center;
+  }
+
+  /* Tables Mobile - Horizontal Scroll */
+  .admin-container table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Modal Mobile */
+  .modal-content {
+    margin: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+
+  /* Form Row Mobile */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Inscription Items Mobile */
+  .inscription-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .inscription-meta {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  /* Legend Mobile */
+  .legend-items {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .sessions-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-header h1 {
+    font-size: 1.25rem;
+  }
+
+  .stat-card .stat-number {
+    font-size: 1.5rem;
+  }
 }
 
 /* ================================= */
