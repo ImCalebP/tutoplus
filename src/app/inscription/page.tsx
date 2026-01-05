@@ -22,6 +22,7 @@ export default function InscriptionPage() {
     });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [acceptTerms, setAcceptTerms] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,6 +40,11 @@ export default function InscriptionPage() {
 
         if (formData.password.length < 6) {
             setError('Le mot de passe doit contenir au moins 6 caractères');
+            return;
+        }
+
+        if (!acceptTerms) {
+            setError('Vous devez accepter les conditions d\'utilisation et la politique de confidentialité');
             return;
         }
 
@@ -238,10 +244,10 @@ export default function InscriptionPage() {
                                         required
                                     >
                                         <option value="">Sélectionnez un service</option>
-                                        <option value="en_ligne">En Ligne - 30$</option>
-                                        <option value="primaire">Primaire Présentiel - 35$</option>
-                                        <option value="secondaire">Secondaire Présentiel - 38$</option>
-                                        <option value="cegep">Cégep (Présentiel & En Ligne) - 40$</option>
+                                        <option value="online">En Ligne - 35$</option>
+                                        <option value="primaire">Primaire Présentiel - 38$</option>
+                                        <option value="secondaire">Secondaire Présentiel - 40$</option>
+                                        <option value="cegep">Cégep - 45$</option>
                                     </select>
                                 </div>
                             </div>
@@ -283,6 +289,29 @@ export default function InscriptionPage() {
                                     value={formData.specifications}
                                     onChange={handleChange}
                                 />
+                            </div>
+                        </div>
+
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label className="checkbox-label">
+                                    <input
+                                        type="checkbox"
+                                        checked={acceptTerms}
+                                        onChange={(e) => setAcceptTerms(e.target.checked)}
+                                        required
+                                    />
+                                    <span>
+                                        J'accepte les{' '}
+                                        <Link href="/conditions-utilisation" target="_blank" className="auth-link">
+                                            conditions d'utilisation
+                                        </Link>{' '}
+                                        et la{' '}
+                                        <Link href="/politique-de-confidentialite" target="_blank" className="auth-link">
+                                            politique de confidentialité
+                                        </Link>
+                                    </span>
+                                </label>
                             </div>
                         </div>
 

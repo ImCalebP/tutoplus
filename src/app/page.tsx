@@ -685,7 +685,10 @@ export default function Home() {
                 tutoplus2025@gmail.com
               </a>
             </div>
-            <div className="footer-links" style={{ marginTop: '1rem' }}>
+            <div className="footer-links" style={{ marginTop: '1rem', display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
+              <Link href="/conditions-utilisation" style={{ color: 'var(--pale-gold)', fontSize: '0.9rem' }}>
+                Conditions d'utilisation
+              </Link>
               <Link href="/politique-de-confidentialite" style={{ color: 'var(--pale-gold)', fontSize: '0.9rem' }}>
                 Politique de confidentialité
               </Link>
