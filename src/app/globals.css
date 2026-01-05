@@ -2786,3 +2786,152 @@ section {
     padding: 1.5rem;
   }
 }
+
+/* Cookie Consent Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+  padding: 1rem 1.5rem;
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cookie-text {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.cookie-text p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cookie-link {
+  color: var(--primary-gold);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.cookie-accept {
+  white-space: nowrap;
+}
+
+/* Privacy Policy Page */
+.policy-page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.policy-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.policy-content h1 {
+  font-size: 2.5rem;
+  color: var(--dark-green);
+  margin-bottom: 0.5rem;
+}
+
+.policy-updated {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.policy-section {
+  margin-bottom: 2.5rem;
+}
+
+.policy-section h2 {
+  font-size: 1.4rem;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--pale-green);
+}
+
+.policy-section h3 {
+  font-size: 1.1rem;
+  color: var(--dark-green);
+  margin: 1.25rem 0 0.75rem;
+}
+
+.policy-section p {
+  color: var(--text-medium);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.policy-section ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.policy-section li {
+  color: var(--text-medium);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.policy-section a {
+  color: var(--primary-green);
+  text-decoration: underline;
+}
+
+.contact-info {
+  background: var(--pale-green);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  margin-top: 1rem;
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+.policy-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .policy-content {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .policy-content h1 {
+    font-size: 1.75rem;
+  }
+}

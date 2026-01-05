@@ -21,6 +21,7 @@ export default function TableauDeBordPage() {
     const [userName, setUserName] = useState('');
     const [sessions, setSessions] = useState<TutoringSession[]>([]);
     const [tutorInfo, setTutorInfo] = useState<Profile | null>(null);
+    const [tutorPhone, setTutorPhone] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -92,6 +93,17 @@ export default function TableauDeBordPage() {
 
                 if (tutorData) {
                     setTutorInfo(tutorData);
+
+                    // Fetch tutor's inscription for phone number
+                    const { data: tutorInscription } = await supabase
+                        .from('inscriptions')
+                        .select('phone')
+                        .eq('user_id', assignmentData.tutor_id)
+                        .single();
+
+                    if (tutorInscription?.phone) {
+                        setTutorPhone(tutorInscription.phone);
+                    }
                 }
             }
 
@@ -238,6 +250,11 @@ export default function TableauDeBordPage() {
                                             <a href={`mailto:${tutorInfo.email}`} className="contact-link">
                                                 📧 {tutorInfo.email}
                                             </a>
+                                            {tutorPhone && (
+                                                <a href={`tel:${tutorPhone}`} className="contact-link">
+                                                    📞 {tutorPhone}
+                                                </a>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

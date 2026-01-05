@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import CookieConsent from '@/components/CookieConsent';
 
 export default function Home() {
   const [showStickyButton, setShowStickyButton] = useState(false);
@@ -684,6 +685,11 @@ export default function Home() {
                 tutoplus2025@gmail.com
               </a>
             </div>
+            <div className="footer-links" style={{ marginTop: '1rem' }}>
+              <Link href="/politique-de-confidentialite" style={{ color: 'var(--pale-gold)', fontSize: '0.9rem' }}>
+                Politique de confidentialité
+              </Link>
+            </div>
             <div className="footer-copyright">
               © {new Date().getFullYear()} Tutoplus. Tous droits réservés.
             </div>
@@ -703,6 +709,7 @@ export default function Home() {
           </button>
         </div>
       )}
+      <CookieConsent />
     </main>
   );
 }
