@@ -311,28 +311,32 @@ export default function AdminPage() {
         }
     };
 
-    const deleteUserAccount = async (userId: string, inscriptionId?: string) => {
-        if (!confirm('ATTENTION: Vous êtes sur le point de supprimer les données de cet utilisateur (profil et inscription). Cette action est irréversible. Continuer?')) return;
+    const deleteUserAccount = async (userId: string, userEmail: string) => {
+        if (!confirm('ATTENTION: Vous êtes sur le point de supprimer complètement cet utilisateur (compte, profil et inscription). Cette action est irréversible. Continuer?')) return;
 
-        const supabase = createClient();
+        try {
+            const response = await fetch('/api/admin/delete-user', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId,
+                    adminEmail: 'tutoplus2025@gmail.com'
+                }),
+            });
 
-        // 1. Delete inscription first
-        if (inscriptionId) {
-            await supabase.from('inscriptions').delete().eq('id', inscriptionId);
-        }
+            const result = await response.json();
 
-        // 2. Delete profile
-        const { error } = await supabase.from('profiles').delete().eq('id', userId);
+            if (!response.ok) {
+                alert('Erreur lors de la suppression: ' + result.error);
+                return;
+            }
 
-        if (error) {
-            alert('Erreur lors de la suppression: ' + error.message);
-        } else {
             setProfiles(profiles.filter(p => p.id !== userId));
             setInscriptions(inscriptions.filter(i => i.user_id !== userId));
-            alert('Données utilisateur supprimées.');
+            alert('Utilisateur complètement supprimé. L\'email est maintenant disponible pour un nouveau compte.');
+        } catch {
+            alert('Erreur lors de la suppression');
         }
-        // Note: The actual Auth User (login) remains in Supabase Auth unless deleted via Admin API, 
-        // but they effectively lose access/data.
     };
 
     const assignTutor = async (studentId: string, tutorId: string) => {
@@ -1093,7 +1097,7 @@ export default function AdminPage() {
                                                             🔑
                                                         </button>
                                                         <button
-                                                            onClick={() => deleteUserAccount(profile.id, inscription?.id)}
+                                                            onClick={() => deleteUserAccount(profile.id, profile.email)}
                                                             title="Supprimer le compte"
                                                             style={{ padding: '0.5rem', border: '1px solid #fecaca', borderRadius: '6px', background: '#fef2f2', color: '#dc2626', cursor: 'pointer' }}
                                                             disabled={profile.email === 'tutoplus2025@gmail.com'}
