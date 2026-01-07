@@ -514,8 +514,8 @@ export default function AdminPage() {
         <main className="admin-page">
             <nav className="dashboard-nav">
                 <Link href="/" className="nav-logo">
-                    <Image src="/logo.jpg" alt="Tutoplus" width={40} height={40} style={{ borderRadius: '8px' }} />
-                    Tutoplus Admin
+                    <Image src="/logo.jpg" alt="Tuto+" width={40} height={40} style={{ borderRadius: '8px' }} />
+                    Tuto+ Admin
                 </Link>
                 <div style={{ display: 'flex', gap: '1rem' }}>
                     <div className="tab-buttons" style={{ display: 'flex', gap: '0.5rem', background: '#f3f4f6', padding: '0.25rem', borderRadius: '8px' }}>

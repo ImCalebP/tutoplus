@@ -30,8 +30,8 @@ export default function Home() {
         <div className="container">
           <div className="nav-content">
             <a href="#" className="nav-logo">
-              <Image src="/logo.jpg" alt="Tutoplus" width={40} height={40} style={{ borderRadius: '8px' }} />
-              Tutoplus
+              <Image src="/logo.jpg" alt="Tuto+" width={40} height={40} style={{ borderRadius: '8px' }} />
+              Tuto+
             </a>
             <div className="nav-links">
               <a href="#services" className="nav-link">Services</a>
@@ -120,7 +120,7 @@ export default function Home() {
 
         <div className="container">
           <div className="hero-content">
-            <h1 className="pencil-title">Tutoplus</h1>
+            <h1 className="pencil-title">Tuto+</h1>
             <p className="hero-subtitle">
               <span className="pencil-underline active">Excellence académique</span> à domicile.<br />
               Votre <span className="pencil-circle">succès scolaire</span> commence ici.
@@ -205,7 +205,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="service-title">Primaire Présentiel</h3>
-              <span className="service-price">38$</span>
+              <span className="service-price">40$</span>
               <p className="service-description">
                 Accompagnement personnalisé à domicile pour les élèves du primaire. Renforcement des bases et aide aux devoirs dans un environnement familier.
               </p>
@@ -239,7 +239,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="service-title">Secondaire Présentiel</h3>
-              <span className="service-price">40$</span>
+              <span className="service-price">42$</span>
               <p className="service-description">
                 Soutien académique à domicile pour les élèves du secondaire. Préparation aux examens et maîtrise des matières complexes.
               </p>
@@ -273,7 +273,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="service-title">Cégep</h3>
-              <span className="service-price">45$</span>
+              <span className="service-price">40-45$</span>
               <p className="service-description">
                 Tutorat spécialisé pour étudiants du cégep, disponible en présentiel ou en ligne. Expertise dans les matières avancées.
               </p>
@@ -314,7 +314,7 @@ export default function Home() {
 
           <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
             <p style={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-              Chez <strong className="gradient-text">Tutoplus</strong>, nous croyons que chaque étudiant mérite
+              Chez <strong className="gradient-text">Tuto+</strong>, nous croyons que chaque étudiant mérite
               un accompagnement de qualité pour atteindre son plein potentiel. Avec plus de <strong className="gold-gradient-text">100 heures d'expérience en tutorat</strong>,
               nous avons développé une approche pédagogique éprouvée qui s'adapte aux besoins uniques de chaque élève.
             </p>
@@ -583,7 +583,7 @@ export default function Home() {
               <h4>Politique de Paiement</h4>
               <p>
                 Le paiement est dû à la fin de chaque séance. Nous acceptons les paiements
-                en espèces, par Interac ou virement bancaire.
+                par carte de crédit uniquement.
               </p>
             </div>
 
@@ -654,13 +654,13 @@ export default function Home() {
             <div className="footer-logo-wrapper">
               <Image
                 src="/logo.jpg"
-                alt="Tutoplus Logo"
+                alt="Tuto+ Logo"
                 width={80}
                 height={80}
                 style={{ display: 'block' }}
               />
             </div>
-            <h3>Tutoplus</h3>
+            <h3>Tuto+</h3>
             <p>Votre succès scolaire commence ici</p>
             <div className="footer-locations">
               <div className="location-badge">
@@ -694,7 +694,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="footer-copyright">
-              © {new Date().getFullYear()} Tutoplus. Tous droits réservés.
+              © {new Date().getFullYear()} Tuto+. Tous droits réservés.
             </div>
           </div>
         </div>

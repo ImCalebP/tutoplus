@@ -10,8 +10,8 @@ export default function ConditionsUtilisationPage() {
                 <div className="container">
                     <div className="nav-content">
                         <Link href="/" className="nav-logo">
-                            <Image src="/logo.jpg" alt="Tutoplus" width={40} height={40} style={{ borderRadius: '8px' }} />
-                            Tutoplus
+                            <Image src="/logo.jpg" alt="Tuto+" width={40} height={40} style={{ borderRadius: '8px' }} />
+                            Tuto+
                         </Link>
                         <div className="nav-links">
                             <Link href="/" className="nav-link">Accueil</Link>
@@ -29,7 +29,7 @@ export default function ConditionsUtilisationPage() {
                     <section className="policy-section">
                         <h2>1. Acceptation des Conditions</h2>
                         <p>
-                            En créant un compte sur <strong>Tutoplus</strong> et en utilisant nos services,
+                            En créant un compte sur <strong>Tuto+</strong> et en utilisant nos services,
                             vous acceptez d'être lié par les présentes conditions d'utilisation. Si vous n'acceptez
                             pas ces conditions, veuillez ne pas utiliser notre plateforme.
                         </p>
@@ -38,7 +38,7 @@ export default function ConditionsUtilisationPage() {
                     <section className="policy-section">
                         <h2>2. Description des Services</h2>
                         <p>
-                            Tutoplus offre des services de tutorat personnalisé pour les élèves du primaire,
+                            Tuto+ offre des services de tutorat personnalisé pour les élèves du primaire,
                             du secondaire et du cégep. Nos services sont disponibles :
                         </p>
                         <ul>
@@ -65,16 +65,15 @@ export default function ConditionsUtilisationPage() {
 
                     <section className="policy-section">
                         <h2>4. Tarification et Paiement</h2>
-                        <p>Les tarifs en vigueur sont :</p>
                         <ul>
                             <li><strong>En ligne (tous niveaux) :</strong> 35$/heure</li>
-                            <li><strong>Primaire (présentiel) :</strong> 38$/heure</li>
-                            <li><strong>Secondaire (présentiel) :</strong> 40$/heure</li>
-                            <li><strong>Cégep :</strong> 45$/heure</li>
+                            <li><strong>Primaire (présentiel) :</strong> 40$/heure</li>
+                            <li><strong>Secondaire (présentiel) :</strong> 42$/heure</li>
+                            <li><strong>Cégep :</strong> 40$ (en ligne) à 45$ (présentiel)/heure</li>
                         </ul>
                         <p>
                             Le paiement est dû à la fin de chaque séance. Nous acceptons les paiements
-                            en espèces, par Interac ou virement bancaire.
+                            par carte de crédit uniquement.
                         </p>
                     </section>
 
@@ -100,11 +99,11 @@ export default function ConditionsUtilisationPage() {
 
                         <h3>6.2 Limitations</h3>
                         <p>
-                            Tutoplus ne garantit pas de résultats scolaires spécifiques. Le succès académique
+                            Tuto+ ne garantit pas de résultats scolaires spécifiques. Le succès académique
                             dépend de nombreux facteurs, incluant l'engagement de l'élève et la pratique régulière.
                         </p>
                         <p>
-                            En aucun cas, Tutoplus ne sera responsable de dommages indirects, accessoires ou
+                            En aucun cas, Tuto+ ne sera responsable de dommages indirects, accessoires ou
                             consécutifs liés à l'utilisation de nos services.
                         </p>
                     </section>
@@ -160,7 +159,7 @@ export default function ConditionsUtilisationPage() {
                             Pour toute question concernant ces conditions d'utilisation :
                         </p>
                         <div className="contact-info">
-                            <p><strong>Tutoplus</strong></p>
+                            <p><strong>Tuto+</strong></p>
                             <p>Courriel : <a href="mailto:tutoplus2025@gmail.com">tutoplus2025@gmail.com</a></p>
                         </div>
                     </section>
@@ -174,10 +173,10 @@ export default function ConditionsUtilisationPage() {
             <footer className="footer">
                 <div className="container">
                     <div className="footer-content">
-                        <h3>Tutoplus</h3>
+                        <h3>Tuto+</h3>
                         <p>Votre succès scolaire commence ici</p>
                         <div className="footer-copyright">
-                            © {new Date().getFullYear()} Tutoplus. Tous droits réservés.
+                            © {new Date().getFullYear()} Tuto+. Tous droits réservés.
                         </div>
                     </div>
                 </div>

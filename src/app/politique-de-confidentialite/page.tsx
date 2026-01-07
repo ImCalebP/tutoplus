@@ -10,8 +10,8 @@ export default function PolitiqueConfidentialitePage() {
                 <div className="container">
                     <div className="nav-content">
                         <Link href="/" className="nav-logo">
-                            <Image src="/logo.jpg" alt="Tutoplus" width={40} height={40} style={{ borderRadius: '8px' }} />
-                            Tutoplus
+                            <Image src="/logo.jpg" alt="Tuto+" width={40} height={40} style={{ borderRadius: '8px' }} />
+                            Tuto+
                         </Link>
                         <div className="nav-links">
                             <Link href="/" className="nav-link">Accueil</Link>
@@ -29,7 +29,7 @@ export default function PolitiqueConfidentialitePage() {
                     <section className="policy-section">
                         <h2>1. Introduction</h2>
                         <p>
-                            Chez <strong>Tutoplus</strong>, nous nous engageons à protéger la vie privée de nos utilisateurs
+                            Chez <strong>Tuto+</strong>, nous nous engageons à protéger la vie privée de nos utilisateurs
                             conformément à la <strong>Loi 25 du Québec</strong> (Loi modernisant des dispositions législatives
                             en matière de protection des renseignements personnels) et à la <strong>Loi sur la protection
                                 des renseignements personnels et les documents électroniques (LPRPDE)</strong>.
@@ -153,7 +153,7 @@ export default function PolitiqueConfidentialitePage() {
                             contactez notre responsable de la protection des renseignements personnels :
                         </p>
                         <div className="contact-info">
-                            <p><strong>Tutoplus</strong></p>
+                            <p><strong>Tuto+</strong></p>
                             <p>Courriel : <a href="mailto:tutoplus2025@gmail.com">tutoplus2025@gmail.com</a></p>
                             <p>Régions desservies : Val-des-Monts, Gatineau</p>
                         </div>
@@ -178,10 +178,10 @@ export default function PolitiqueConfidentialitePage() {
             <footer className="footer">
                 <div className="container">
                     <div className="footer-content">
-                        <h3>Tutoplus</h3>
+                        <h3>Tuto+</h3>
                         <p>Votre succès scolaire commence ici</p>
                         <div className="footer-copyright">
-                            © {new Date().getFullYear()} Tutoplus. Tous droits réservés.
+                            © {new Date().getFullYear()} Tuto+. Tous droits réservés.
                         </div>
                     </div>
                 </div>

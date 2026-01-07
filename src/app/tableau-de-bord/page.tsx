@@ -156,8 +156,8 @@ export default function TableauDeBordPage() {
         <main className="dashboard-page">
             <nav className="dashboard-nav">
                 <Link href="/" className="nav-logo">
-                    <Image src="/logo.jpg" alt="Tutoplus" width={40} height={40} style={{ borderRadius: '8px' }} />
-                    Tutoplus
+                    <Image src="/logo.jpg" alt="Tuto+" width={40} height={40} style={{ borderRadius: '8px' }} />
+                    Tuto+
                 </Link>
                 <button onClick={handleLogout} className="btn btn-secondary">
                     Déconnexion
@@ -212,7 +212,7 @@ export default function TableauDeBordPage() {
                                     <div>
                                         <h3>Félicitations! Votre inscription est approuvée</h3>
                                         <p>
-                                            Bienvenue dans la famille Tutoplus! Votre inscription a été approuvée et nous
+                                            Bienvenue dans la famille Tuto+! Votre inscription a été approuvée et nous
                                             sommes prêts à commencer votre parcours vers la réussite académique.
                                         </p>
                                     </div>

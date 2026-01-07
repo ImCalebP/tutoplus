@@ -43,7 +43,7 @@ export default function ConnexionPage() {
             <div className="auth-container">
                 <div className="auth-card">
                     <h1>Connexion</h1>
-                    <p className="auth-subtitle">Accédez à votre espace Tutoplus</p>
+                    <p className="auth-subtitle">Accédez à votre espace Tuto+</p>
 
                     {error && <div className="auth-error">{error}</div>}
 

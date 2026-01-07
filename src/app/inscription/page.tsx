@@ -132,10 +132,10 @@ export default function InscriptionPage() {
                 <div className="auth-card auth-card-wide">
                     <div className="auth-header">
                         <Link href="/" className="auth-logo">
-                            <Image src="/logo.jpg" alt="Tutoplus" width={60} height={60} style={{ borderRadius: '12px' }} />
+                            <Image src="/logo.jpg" alt="Tuto+" width={60} height={60} style={{ borderRadius: '12px' }} />
                         </Link>
                         <h1>Créer un compte</h1>
-                        <p className="auth-subtitle">Inscrivez-vous pour commencer votre parcours avec Tutoplus</p>
+                        <p className="auth-subtitle">Inscrivez-vous pour commencer votre parcours avec Tuto+</p>
                     </div>
 
                     {error && <div className="auth-error">{error}</div>}
@@ -245,9 +245,10 @@ export default function InscriptionPage() {
                                     >
                                         <option value="">Sélectionnez un service</option>
                                         <option value="online">En Ligne - 35$</option>
-                                        <option value="primaire">Primaire Présentiel - 38$</option>
-                                        <option value="secondaire">Secondaire Présentiel - 40$</option>
-                                        <option value="cegep">Cégep - 45$</option>
+                                        <option value="primaire">Primaire Présentiel - 40$</option>
+                                        <option value="secondaire">Secondaire Présentiel - 42$</option>
+                                        <option value="cegep_online">Cégep En Ligne - 40$</option>
+                                        <option value="cegep">Cégep Présentiel - 45$</option>
                                     </select>
                                 </div>
                             </div>

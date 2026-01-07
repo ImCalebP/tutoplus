@@ -333,8 +333,8 @@ export default function TuteurPage() {
         <main className="tutor-page">
             <nav className="dashboard-nav">
                 <Link href="/" className="nav-logo">
-                    <Image src="/logo.jpg" alt="Tutoplus" width={40} height={40} style={{ borderRadius: '8px' }} />
-                    Tutoplus Tuteur
+                    <Image src="/logo.jpg" alt="Tuto+" width={40} height={40} style={{ borderRadius: '8px' }} />
+                    Tuto+ Tuteur
                 </Link>
                 <button onClick={handleLogout} className="btn btn-secondary">
                     Déconnexion
