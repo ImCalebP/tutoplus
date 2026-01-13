@@ -583,7 +583,7 @@ export default function Home() {
               <h4>Politique de Paiement</h4>
               <p>
                 Le paiement est dû à la fin de chaque séance. Nous acceptons les paiements
-                par carte de crédit uniquement.
+                par virement Interac uniquement.
               </p>
             </div>
 

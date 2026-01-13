@@ -73,7 +73,7 @@ export default function ConditionsUtilisationPage() {
                         </ul>
                         <p>
                             Le paiement est dû à la fin de chaque séance. Nous acceptons les paiements
-                            par carte de crédit uniquement.
+                            par virement Interac uniquement.
                         </p>
                     </section>
 
