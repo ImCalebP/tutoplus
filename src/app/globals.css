@@ -539,6 +539,47 @@ section {
   fill: var(--primary-gold);
 }
 
+/* Discount Badge */
+.discount-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: white;
+  border: 2px solid var(--primary-gold);
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(212, 168, 56, 0.3);
+  animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both, pulseBadge 3s ease-in-out infinite;
+  text-decoration: none;
+}
+
+@keyframes pulseBadge {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 168, 56, 0.3);
+    transform: scale(1);
+    border-color: var(--primary-gold);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(212, 168, 56, 0.5);
+    transform: scale(1.05);
+    border-color: var(--light-gold);
+  }
+}
+
+.discount-highlight {
+  color: #c49a30;
+  /* Slightly darker gold for text visibility */
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 /* Animated Background Lines */
 .hero-lines {
   position: absolute;

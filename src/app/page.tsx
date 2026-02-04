@@ -120,6 +120,14 @@ export default function Home() {
 
         <div className="container">
           <div className="hero-content">
+            <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
+              <Link href="/inscription" className="discount-badge">
+                <span style={{ fontSize: '1.5rem' }}>🎉</span>
+                <span>
+                  <span className="discount-highlight">25% DE RABAIS</span> sur la première rencontre!
+                </span>
+              </Link>
+            </div>
             <h1 className="pencil-title">Tuto+</h1>
             <p className="hero-subtitle">
               <span className="pencil-underline active">Excellence académique</span> à domicile.<br />
@@ -160,6 +168,14 @@ export default function Home() {
               Des solutions d'apprentissage personnalisées pour tous les niveaux scolaires,
               adaptées à vos besoins et votre emploi du temps.
             </p>
+            <div style={{ marginTop: '2rem', display: 'inline-block' }}>
+              <div className="discount-badge" style={{ marginBottom: 0, fontSize: '0.9rem', padding: '0.4rem 1rem' }}>
+                <span style={{ fontSize: '1.2rem' }}>🎁</span>
+                <span>
+                  <span className="discount-highlight">25% DE RABAIS</span> sur la première rencontre
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="services-grid">
