@@ -66,9 +66,9 @@ export default function ConditionsUtilisationPage() {
                     <section className="policy-section">
                         <h2>4. Tarification et Paiement</h2>
                         <ul>
-                            <li><strong>En ligne (tous niveaux) :</strong> 35$/heure</li>
-                            <li><strong>Primaire (présentiel) :</strong> 40$/heure</li>
-                            <li><strong>Secondaire (présentiel) :</strong> 42$/heure</li>
+                            <li><strong>En ligne (tous niveaux) :</strong> 38$/heure</li>
+                            <li><strong>Primaire (présentiel) :</strong> 43$/heure</li>
+                            <li><strong>Secondaire (présentiel) :</strong> 45$/heure</li>
                             <li><strong>Cégep :</strong> 40$ (en ligne) à 45$ (présentiel)/heure</li>
                         </ul>
                         <p>

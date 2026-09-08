@@ -136,7 +136,8 @@ export default function TableauDeBordPage() {
             'online': 'En Ligne',
             'primaire': 'Primaire',
             'secondaire': 'Secondaire',
-            'cegep': 'Cégep'
+            'cegep': 'Cégep',
+            'orthopedagogie': 'Orthopédagogie'
         };
         return labels[service] || service;
     };

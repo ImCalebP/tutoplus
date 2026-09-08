@@ -244,11 +244,12 @@ export default function InscriptionPage() {
                                         required
                                     >
                                         <option value="">Sélectionnez un service</option>
-                                        <option value="online">En Ligne - 35$</option>
-                                        <option value="primaire">Primaire Présentiel - 40$</option>
-                                        <option value="secondaire">Secondaire Présentiel - 42$</option>
+                                        <option value="online">En Ligne - 38$</option>
+                                        <option value="primaire">Primaire Présentiel - 43$</option>
+                                        <option value="secondaire">Secondaire Présentiel - 45$</option>
                                         <option value="cegep_online">Cégep En Ligne - 40$</option>
                                         <option value="cegep">Cégep Présentiel - 45$</option>
+                                        <option value="orthopedagogie">Orthopédagogie</option>
                                     </select>
                                 </div>
                             </div>

@@ -256,7 +256,7 @@ h1.pencil-title::after {
   content: '';
   position: absolute;
   inset: -4px;
-  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 300 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 10 10 L 290 12 L 288 390 L 12 388 Z' stroke='%23d4a838' stroke-width='2' fill='none' stroke-linecap='round' opacity='0.4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 300 400' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 10 10 L 290 12 L 288 390 L 12 388 Z' stroke='%23d4a838' stroke-width='2' vector-effect='non-scaling-stroke' fill='none' stroke-linecap='round' opacity='0.4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0;
@@ -668,6 +668,10 @@ section {
   border: 1px solid var(--border-light);
   display: flex;
   flex-direction: column;
+}
+
+.service-card.full-width {
+  grid-column: 1 / -1;
 }
 
 .service-card::before {

@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tuto+ - Services de Tutorat à Domicile | Val-des-Monts & Gatineau",
-  description: "Services de tutorat professionnel à domicile et en ligne. Primaire, secondaire et cégep. Prix les plus bas sur le marché avec 100+ heures d'expérience.",
+  description: "Services de tutorat professionnel à domicile et en ligne. Primaire, secondaire et cégep. Prix les plus bas sur le marché avec 400+ heures d'expérience.",
   keywords: "tutorat, Val-des-Monts, Gatineau, aide aux devoirs, soutien scolaire, primaire, secondaire, cégep",
   icons: {
     icon: "/logo.jpg",

@@ -187,7 +187,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="service-title">En Ligne</h3>
-              <span className="service-price">35$</span>
+              <span className="service-price">38$</span>
               <p className="service-description">
                 Séances de tutorat virtuelles flexibles pour tous les niveaux. Apprenez confortablement de chez vous avec des outils interactifs modernes.
               </p>
@@ -221,7 +221,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="service-title">Primaire Présentiel</h3>
-              <span className="service-price">40$</span>
+              <span className="service-price">43$</span>
               <p className="service-description">
                 Accompagnement personnalisé à domicile pour les élèves du primaire. Renforcement des bases et aide aux devoirs dans un environnement familier.
               </p>
@@ -255,7 +255,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="service-title">Secondaire Présentiel</h3>
-              <span className="service-price">42$</span>
+              <span className="service-price">45$</span>
               <p className="service-description">
                 Soutien académique à domicile pour les élèves du secondaire. Préparation aux examens et maîtrise des matières complexes.
               </p>
@@ -314,6 +314,52 @@ export default function Home() {
                 </li>
               </ul>
             </div>
+
+            <div className="service-card full-width" style={{ border: '2px solid var(--primary-gold)', background: 'linear-gradient(to right, #ffffff, #faf8f4)' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
+                <div style={{ flex: '1', minWidth: '280px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                    <div className="service-icon-wrapper" style={{ background: 'var(--gradient-gold)', margin: 0 }}>
+                      <svg className="service-icon" viewBox="0 0 24 24" style={{ stroke: '#fff' }}>
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                      </svg>
+                    </div>
+                    <h3 className="service-title" style={{ margin: 0, fontSize: '1.8rem' }}>Nouveau : Orthopédagogie</h3>
+                  </div>
+                  <p className="service-description" style={{ fontSize: '1.1rem', marginBottom: '1.5rem' }}>
+                    Service spécialisé pour aider les élèves en difficulté à mieux comprendre et progresser à l'école. Travail en profondeur et développement de stratégies adaptées pour favoriser l'autonomie et la confiance.
+                  </p>
+                  <Link href="/orthopedagogie" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                    Découvrir notre service d'orthopédagogie
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginLeft: '0.5rem' }}>
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+                <div style={{ flex: '0 0 auto', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <ul className="service-features" style={{ border: 'none', margin: 0, padding: 0 }}>
+                    <li style={{ fontSize: '1.05rem', fontWeight: 500, color: 'var(--dark-green)' }}>
+                      <svg className="check-icon" viewBox="0 0 24 24" style={{ stroke: 'var(--primary-gold)' }}>
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      Lecture, écriture ou mathématiques
+                    </li>
+                    <li style={{ fontSize: '1.05rem', fontWeight: 500, color: 'var(--dark-green)' }}>
+                      <svg className="check-icon" viewBox="0 0 24 24" style={{ stroke: 'var(--primary-gold)' }}>
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      Élèves du primaire
+                    </li>
+                    <li style={{ fontSize: '1.05rem', fontWeight: 500, color: 'var(--dark-green)' }}>
+                      <svg className="check-icon" viewBox="0 0 24 24" style={{ stroke: 'var(--primary-gold)' }}>
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      Reçus pour assurances & impôts
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -331,7 +377,7 @@ export default function Home() {
           <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
             <p style={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '2rem' }}>
               Chez <strong className="gradient-text">Tuto+</strong>, nous croyons que chaque étudiant mérite
-              un accompagnement de qualité pour atteindre son plein potentiel. Avec plus de <strong className="gold-gradient-text">100 heures d'expérience en tutorat</strong>,
+              un accompagnement de qualité pour atteindre son plein potentiel. Avec plus de <strong className="gold-gradient-text">400 heures d'expérience en tutorat</strong>,
               nous avons développé une approche pédagogique éprouvée qui s'adapte aux besoins uniques de chaque élève.
             </p>
             <p style={{ fontSize: '1.0625rem', color: 'var(--text-medium)' }}>
@@ -342,11 +388,11 @@ export default function Home() {
 
           <div className="stats-container">
             <div className="stat-item">
-              <span className="stat-number">100+</span>
+              <span className="stat-number">400+</span>
               <span className="stat-label">Heures d'Expérience</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">4</span>
+              <span className="stat-number">5</span>
               <span className="stat-label">Services Offerts</span>
             </div>
             <div className="stat-item">
@@ -390,7 +436,7 @@ export default function Home() {
               </div>
               <h3>Expérience Éprouvée</h3>
               <p>
-                Plus de 100 heures d'expérience en tutorat nous permettent de comprendre
+                Plus de 400 heures d'expérience en tutorat nous permettent de comprendre
                 les défis d'apprentissage et d'adapter nos méthodes pour des résultats concrets.
               </p>
             </div>

@@ -402,6 +402,7 @@ export default function AdminPage() {
             'secondaire': 'Secondaire',
             'cegep': 'Cégep',
             'online': 'En Ligne',
+            'orthopedagogie': 'Orthopédagogie',
         };
         return labels[service] || service;
     };
@@ -1074,6 +1075,7 @@ export default function AdminPage() {
                                                         <option value="primaire">Primaire</option>
                                                         <option value="secondaire">Secondaire</option>
                                                         <option value="cegep">Cégep</option>
+                                                        <option value="orthopedagogie">Orthopédagogie</option>
                                                     </select>
                                                 </td>
                                                 <td style={{ padding: '1rem', fontSize: '0.9rem', color: '#666' }}>
