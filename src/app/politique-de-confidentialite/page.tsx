@@ -155,7 +155,7 @@ export default function PolitiqueConfidentialitePage() {
                         <div className="contact-info">
                             <p><strong>Tuto+</strong></p>
                             <p>Courriel : <a href="mailto:tutoplus2025@gmail.com">tutoplus2025@gmail.com</a></p>
-                            <p>Régions desservies : Val-des-Monts, Gatineau</p>
+                            <p>Régions desservies : Val-des-Monts, Gatineau, Longueuil – Brossard et environs</p>
                         </div>
                     </section>
 

@@ -43,7 +43,7 @@ export default function ConditionsUtilisationPage() {
                         </p>
                         <ul>
                             <li><strong>En ligne :</strong> Séances virtuelles via visioconférence</li>
-                            <li><strong>À domicile :</strong> Dans les régions de Val-des-Monts et Gatineau</li>
+                            <li><strong>À domicile :</strong> Dans les régions de Val-des-Monts, Gatineau, ainsi que Longueuil – Brossard et ses environs</li>
                         </ul>
                     </section>
 

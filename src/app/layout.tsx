@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tuto+ - Services de Tutorat à Domicile | Val-des-Monts & Gatineau",
+  title: "Tuto+ - Services de Tutorat à Domicile | Val-des-Monts, Gatineau & Longueuil – Brossard",
   description: "Services de tutorat professionnel à domicile et en ligne. Primaire, secondaire et cégep. Prix les plus bas sur le marché avec 400+ heures d'expérience.",
   keywords: "tutorat, Val-des-Monts, Gatineau, aide aux devoirs, soutien scolaire, primaire, secondaire, cégep",
   icons: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Tuto+ - Services de Tutorat à Domicile",
-    description: "Services de tutorat professionnel à domicile et en ligne. Primaire, secondaire et cégep. Val-des-Monts & Gatineau.",
+    description: "Services de tutorat professionnel à domicile et en ligne. Primaire, secondaire et cégep. Val-des-Monts, Gatineau & Longueuil – Brossard.",
     url: "https://tutoplus.ca",
     siteName: "Tuto+",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Tuto+ - Services de Tutorat",
-    description: "Services de tutorat professionnel à domicile et en ligne. Val-des-Monts & Gatineau.",
+    description: "Services de tutorat professionnel à domicile et en ligne. Val-des-Monts, Gatineau & Longueuil – Brossard.",
     images: ["/logo.jpg"],
   },
 };

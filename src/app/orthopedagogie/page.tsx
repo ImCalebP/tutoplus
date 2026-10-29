@@ -283,6 +283,12 @@ export default function Orthopedagogie() {
                 </svg>
                 Gatineau
               </div>
+              <div className="location-badge">
+                <svg className="location-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                Longueuil – Brossard et environs
+              </div>
             </div>
             <div className="footer-contact" style={{ marginTop: '1rem' }}>
               <a href="mailto:tutoplus2025@gmail.com" style={{ color: 'var(--pale-gold)', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
