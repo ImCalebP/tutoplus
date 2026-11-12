@@ -591,7 +591,7 @@ section {
   border: 1px solid #c8b67e;
   background: #fffdf7;
   box-shadow: 0 2px 8px rgba(32, 72, 49, 0.06);
-  animation: none;
+  animation: pulseBadge 3s ease-in-out infinite;
   font-size: 0.9375rem;
   line-height: 1.5;
   text-align: center;
@@ -627,6 +627,7 @@ section {
 
 @media (prefers-reduced-motion: reduce) {
   .discount-badge--hero {
+    animation: none;
     transition: none;
   }
 }
