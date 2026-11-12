@@ -19,8 +19,11 @@ interface AssignedStudent {
     inscription?: {
         student_name: string;
         phone: string;
+        parent_name: string;
+        email: string;
+        address: string;
         service: string;
-    };
+    } | null;
 }
 
 export default function TuteurPage() {
@@ -28,6 +31,16 @@ export default function TuteurPage() {
     const [loading, setLoading] = useState(true);
     const [profile, setProfile] = useState<Profile | null>(null);
     const [assignedStudents, setAssignedStudents] = useState<AssignedStudent[]>([]);
+    const [expandedStudents, setExpandedStudents] = useState<Set<string>>(() => new Set());
+    const toggleStudent = (id: string) => {
+        setExpandedStudents(previous => {
+            const next = new Set(previous);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+        });
+    };
+    const [studentsError, setStudentsError] = useState('');
     const [sessions, setSessions] = useState<TutoringSession[]>([]);
     const [currentDate, setCurrentDate] = useState(new Date());
     const [showModal, setShowModal] = useState(false);
@@ -79,34 +92,19 @@ export default function TuteurPage() {
 
             setProfile(profileData);
 
-            // Fetch assigned students
-            const { data: assignmentsData } = await supabase
-                .from('tutor_assignments')
-                .select('student_id')
-                .eq('tutor_id', user.id);
-
-            if (assignmentsData && assignmentsData.length > 0) {
-                const studentIds = assignmentsData.map(a => a.student_id);
-
-                // Fetch student profiles
-                const { data: studentsData } = await supabase
-                    .from('profiles')
-                    .select('id, email')
-                    .in('id', studentIds);
-
-                // Fetch inscriptions for student names
-                const { data: inscriptionsData } = await supabase
-                    .from('inscriptions')
-                    .select('user_id, student_name, phone, service')
-                    .in('user_id', studentIds);
-
-                if (studentsData) {
-                    const studentsWithInfo = studentsData.map(s => ({
-                        ...s,
-                        inscription: inscriptionsData?.find(i => i.user_id === s.id)
-                    }));
-                    setAssignedStudents(studentsWithInfo);
-                }
+            // The server verifies identity and current student assignments.
+            try {
+                const { data: { session } } = await supabase.auth.getSession();
+                if (!session) throw new Error('Session expirée. Veuillez vous reconnecter.');
+                const response = await fetch('/api/tutor/students', {
+                    headers: { Authorization: `Bearer ${session.access_token}` },
+                    cache: 'no-store'
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || 'Impossible de charger les élèves.');
+                setAssignedStudents(result.students);
+            } catch (error) {
+                setStudentsError(error instanceof Error ? error.message : 'Impossible de charger les élèves.');
             }
 
             // Fetch sessions
@@ -351,9 +349,11 @@ export default function TuteurPage() {
                     {/* Assigned Students */}
                     <div className="tutor-section students-section">
                         <div className="section-header-row">
-                            <h2>Mes Étudiants ({assignedStudents.length})</h2>
+                            <h2>Mes élèves <span className="student-count">{assignedStudents.length}</span></h2>
                         </div>
-                        {assignedStudents.length === 0 ? (
+                        {studentsError ? (
+                            <div role="alert" className="auth-error">{studentsError}</div>
+                        ) : assignedStudents.length === 0 ? (
                             <div className="empty-state">
                                 <p>Aucun étudiant assigné pour le moment.</p>
                                 <p style={{ fontSize: '0.9rem', color: '#666' }}>L'administrateur doit vous assigner des étudiants.</p>
@@ -361,27 +361,72 @@ export default function TuteurPage() {
                         ) : (
                             <div className="students-grid">
                                 {assignedStudents.map(student => (
-                                    <div key={student.id} className="student-card">
-                                        <div className="student-avatar">
-                                            {(student.inscription?.student_name || student.email)[0].toUpperCase()}
-                                        </div>
-                                        <div className="student-info">
-                                            <h3>{student.inscription?.student_name || 'Sans nom'}</h3>
-                                            <div className="student-contact">
-                                                <a href={`mailto:${student.email}`} className="contact-link">
-                                                    📧 {student.email}
-                                                </a>
-                                                {student.inscription?.phone && (
-                                                    <a href={`tel:${student.inscription.phone}`} className="contact-link">
-                                                        📞 {student.inscription.phone}
-                                                    </a>
+                                    <article key={student.id} className="student-profile" data-expanded={expandedStudents.has(student.id)}>
+                                        <div className="student-profile-header">
+                                            <div className="student-profile-avatar" aria-hidden="true">
+                                                {(student.inscription?.student_name || student.email || '?').trim().charAt(0).toUpperCase()}
+                                            </div>
+                                            <div className="student-profile-heading">
+                                                <h3>{student.inscription?.student_name || 'Nom non renseigné'}</h3>
+                                                {student.inscription?.service && (
+                                                    <span className="student-profile-service">
+                                                        {({
+                                                            en_ligne: 'En ligne', online: 'En ligne',
+                                                            primaire: 'Primaire', secondaire: 'Secondaire',
+                                                            cegep: 'Cégep', orthopedagogie: 'Orthopédagogie'
+                                                        } as Record<string, string>)[student.inscription.service] || student.inscription.service}
+                                                    </span>
                                                 )}
                                             </div>
-                                            {student.inscription && (
-                                                <span className="student-service">{student.inscription.service}</span>
-                                            )}
                                         </div>
-                                    </div>
+                                        <button
+                                            type="button"
+                                            className="student-profile-toggle"
+                                            aria-expanded={expandedStudents.has(student.id)}
+                                            aria-controls={`student-details-${student.id}`}
+                                            aria-label={`${expandedStudents.has(student.id) ? 'Masquer' : 'Afficher'} les coordonnées de ${student.inscription?.student_name || student.email}`}
+                                            onClick={() => toggleStudent(student.id)}
+                                        >
+                                            <span className="student-profile-show">Voir les coordonnées</span>
+                                            <span className="student-profile-hide">Masquer les coordonnées</span>
+                                            <svg className="student-profile-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                                <path d="m6 9 6 6 6-6" />
+                                            </svg>
+                                        </button>
+                                        <div
+                                            id={`student-details-${student.id}`}
+                                            className="student-profile-reveal"
+                                            aria-hidden={!expandedStudents.has(student.id)}
+                                            inert={!expandedStudents.has(student.id)}
+                                        >
+                                        <div className="student-profile-reveal-inner">
+                                        <dl className="student-profile-details">
+                                            <div className="student-profile-field">
+                                                <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3" /><path d="M5 21v-2a7 7 0 0 1 14 0v2" /></svg>Parent ou responsable</dt>
+                                                <dd>{student.inscription?.parent_name?.trim() || 'Non renseigné'}</dd>
+                                            </div>
+                                            <div className="student-profile-field">
+                                                <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg>Courriel</dt>
+                                                <dd><a href={`mailto:${student.inscription?.email || student.email}`}>
+                                                    {student.inscription?.email || student.email}
+                                                </a></dd>
+                                            </div>
+                                            <div className="student-profile-field">
+                                                <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z" /></svg>Téléphone</dt>
+                                                <dd>{student.inscription?.phone?.trim() ? (
+                                                    <a href={`tel:${student.inscription.phone.replace(/[^+\d]/g, '')}`}>
+                                                        {student.inscription.phone}
+                                                    </a>
+                                                ) : 'Non renseigné'}</dd>
+                                            </div>
+                                            <div className="student-profile-field student-profile-location">
+                                                <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>Adresse de l’élève</dt>
+                                                <dd><address>{student.inscription?.address?.trim() || 'Non renseignée'}</address></dd>
+                                            </div>
+                                        </dl>
+                                        </div>
+                                        </div>
+                                    </article>
                                 ))}
                             </div>
                         )}

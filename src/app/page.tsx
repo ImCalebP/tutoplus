@@ -180,7 +180,6 @@ export default function Home() {
             </p>
             <div style={{ marginTop: '2rem', display: 'inline-block' }}>
               <div className="discount-badge" style={{ marginBottom: 0, fontSize: '0.9rem', padding: '0.4rem 1rem' }}>
-                <span style={{ fontSize: '1.2rem' }}>🎁</span>
                 <span>
                   <span className="discount-highlight">25% DE RABAIS</span> sur la première rencontre
                 </span>
@@ -387,7 +386,7 @@ export default function Home() {
           <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
             <p style={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '2rem' }}>
               Chez <strong className="gradient-text">Tuto+</strong>, nous croyons que chaque étudiant mérite
-              un accompagnement de qualité pour atteindre son plein potentiel. Avec plus de <strong className="gold-gradient-text">400 heures d'expérience en tutorat</strong>,
+              un accompagnement de qualité pour atteindre son plein potentiel. Avec plus de <strong className="gold-gradient-text">1 000 heures d'expérience en tutorat</strong>,
               nous avons développé une approche pédagogique éprouvée qui s'adapte aux besoins uniques de chaque élève.
             </p>
             <p style={{ fontSize: '1.0625rem', color: 'var(--text-medium)' }}>
@@ -398,7 +397,7 @@ export default function Home() {
 
           <div className="stats-container">
             <div className="stat-item">
-              <span className="stat-number">400+</span>
+              <span className="stat-number">1&nbsp;000+</span>
               <span className="stat-label">Heures d'Expérience</span>
             </div>
             <div className="stat-item">
@@ -446,7 +445,7 @@ export default function Home() {
               </div>
               <h3>Expérience Éprouvée</h3>
               <p>
-                Plus de 400 heures d'expérience en tutorat nous permettent de comprendre
+                Plus de 1 000 heures d'expérience en tutorat nous permettent de comprendre
                 les défis d'apprentissage et d'adapter nos méthodes pour des résultats concrets.
               </p>
             </div>
