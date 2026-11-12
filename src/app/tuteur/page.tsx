@@ -19,8 +19,11 @@ interface AssignedStudent {
     inscription?: {
         student_name: string;
         phone: string;
+        parent_name: string;
+        email: string;
+        address: string;
         service: string;
-    };
+    } | null;
 }
 
 export default function TuteurPage() {
@@ -28,6 +31,7 @@ export default function TuteurPage() {
     const [loading, setLoading] = useState(true);
     const [profile, setProfile] = useState<Profile | null>(null);
     const [assignedStudents, setAssignedStudents] = useState<AssignedStudent[]>([]);
+    const [studentsError, setStudentsError] = useState('');
     const [sessions, setSessions] = useState<TutoringSession[]>([]);
     const [currentDate, setCurrentDate] = useState(new Date());
     const [showModal, setShowModal] = useState(false);
@@ -79,34 +83,19 @@ export default function TuteurPage() {
 
             setProfile(profileData);
 
-            // Fetch assigned students
-            const { data: assignmentsData } = await supabase
-                .from('tutor_assignments')
-                .select('student_id')
-                .eq('tutor_id', user.id);
-
-            if (assignmentsData && assignmentsData.length > 0) {
-                const studentIds = assignmentsData.map(a => a.student_id);
-
-                // Fetch student profiles
-                const { data: studentsData } = await supabase
-                    .from('profiles')
-                    .select('id, email')
-                    .in('id', studentIds);
-
-                // Fetch inscriptions for student names
-                const { data: inscriptionsData } = await supabase
-                    .from('inscriptions')
-                    .select('user_id, student_name, phone, service')
-                    .in('user_id', studentIds);
-
-                if (studentsData) {
-                    const studentsWithInfo = studentsData.map(s => ({
-                        ...s,
-                        inscription: inscriptionsData?.find(i => i.user_id === s.id)
-                    }));
-                    setAssignedStudents(studentsWithInfo);
-                }
+            // The server verifies identity and current student assignments.
+            try {
+                const { data: { session } } = await supabase.auth.getSession();
+                if (!session) throw new Error('Session expirée. Veuillez vous reconnecter.');
+                const response = await fetch('/api/tutor/students', {
+                    headers: { Authorization: `Bearer ${session.access_token}` },
+                    cache: 'no-store'
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || 'Impossible de charger les élèves.');
+                setAssignedStudents(result.students);
+            } catch (error) {
+                setStudentsError(error instanceof Error ? error.message : 'Impossible de charger les élèves.');
             }
 
             // Fetch sessions
@@ -353,7 +342,9 @@ export default function TuteurPage() {
                         <div className="section-header-row">
                             <h2>Mes Étudiants ({assignedStudents.length})</h2>
                         </div>
-                        {assignedStudents.length === 0 ? (
+                        {studentsError ? (
+                            <div role="alert" className="auth-error">{studentsError}</div>
+                        ) : assignedStudents.length === 0 ? (
                             <div className="empty-state">
                                 <p>Aucun étudiant assigné pour le moment.</p>
                                 <p style={{ fontSize: '0.9rem', color: '#666' }}>L'administrateur doit vous assigner des étudiants.</p>
@@ -368,14 +359,20 @@ export default function TuteurPage() {
                                         <div className="student-info">
                                             <h3>{student.inscription?.student_name || 'Sans nom'}</h3>
                                             <div className="student-contact">
-                                                <a href={`mailto:${student.email}`} className="contact-link">
-                                                    📧 {student.email}
+                                                {student.inscription?.parent_name && (
+                                                    <span>Parent : {student.inscription.parent_name}</span>
+                                                )}
+                                                <a href={`mailto:${student.inscription?.email || student.email}`} className="contact-link">
+                                                    Courriel : {student.inscription?.email || student.email}
                                                 </a>
                                                 {student.inscription?.phone && (
                                                     <a href={`tel:${student.inscription.phone}`} className="contact-link">
-                                                        📞 {student.inscription.phone}
+                                                        Téléphone : {student.inscription.phone}
                                                     </a>
                                                 )}
+                                                <address className="student-contact-address">
+                                                    Adresse : {student.inscription?.address?.trim() || 'Non renseignée'}
+                                                </address>
                                             </div>
                                             {student.inscription && (
                                                 <span className="student-service">{student.inscription.service}</span>

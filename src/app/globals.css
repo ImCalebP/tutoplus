@@ -599,7 +599,7 @@ section {
 }
 
 .discount-badge--hero .discount-badge__offer {
-  color: var(--dark-green);
+  color: #c49a30;
   font-weight: 700;
   letter-spacing: -0.015em;
   white-space: nowrap;
@@ -3195,3 +3195,7 @@ section {
   color: var(--primary-green);
   text-decoration: underline;
 }
+/* Keep long student addresses readable on narrow screens. */
+.student-info { min-width: 0; }
+.student-contact { overflow-wrap: anywhere; }
+.student-contact-address { margin: 0; font-style: normal; white-space: pre-line; }
