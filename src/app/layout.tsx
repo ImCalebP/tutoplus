@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tuto+ - Services de Tutorat à Domicile | Val-des-Monts, Gatineau & Longueuil – Brossard",
-  description: "Services de tutorat professionnel à domicile et en ligne. Primaire, secondaire et cégep. Prix les plus bas sur le marché avec 400+ heures d'expérience.",
-  keywords: "tutorat, Val-des-Monts, Gatineau, aide aux devoirs, soutien scolaire, primaire, secondaire, cégep",
+  title: "Tuto+ - Services de Tutorat à Domicile | Val-des-Monts, Gatineau, Longueuil et Brossard",
+  description: "Tutorat à domicile dans 4 régions : Val-des-Monts, Gatineau, Longueuil, ainsi que Brossard et les environs. Aussi en ligne. Primaire, secondaire et cégep.",
+  keywords: "tutorat, Val-des-Monts, Gatineau, Longueuil, Brossard, aide aux devoirs, soutien scolaire, primaire, secondaire, cégep",
   icons: {
     icon: "/logo.jpg",
     shortcut: "/logo.jpg",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Tuto+ - Services de Tutorat à Domicile",
-    description: "Services de tutorat professionnel à domicile et en ligne. Primaire, secondaire et cégep. Val-des-Monts, Gatineau & Longueuil – Brossard.",
+    description: "Services de tutorat professionnel à domicile et en ligne. Primaire, secondaire et cégep. Val-des-Monts, Gatineau, Longueuil, ainsi que Brossard et les environs.",
     url: "https://tutoplus.ca",
     siteName: "Tuto+",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Tuto+ - Services de Tutorat",
-    description: "Services de tutorat professionnel à domicile et en ligne. Val-des-Monts, Gatineau & Longueuil – Brossard.",
+    description: "Services de tutorat professionnel à domicile et en ligne. Val-des-Monts, Gatineau, Longueuil, ainsi que Brossard et les environs.",
     images: ["/logo.jpg"],
   },
 };

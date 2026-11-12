@@ -406,8 +406,8 @@ export default function Home() {
               <span className="stat-label">Services Offerts</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">3</span>
-              <span className="stat-label">Régions Desservies</span>
+              <span className="stat-number">4</span>
+              <span className="stat-label">Régions desservies</span>
             </div>
           </div>
         </div>
@@ -461,7 +461,7 @@ export default function Home() {
               <h3>Service à Domicile</h3>
               <p>
                 Profitez du confort de votre foyer avec nos services à domicile dans les régions
-                de Val-des-Monts, Gatineau, ainsi que Longueuil – Brossard et ses environs. Pas de déplacements, nous venons à vous.
+                de Val-des-Monts, Gatineau, Longueuil, ainsi que Brossard et les environs. Pas de déplacements, nous venons à vous.
               </p>
             </div>
 
@@ -712,7 +712,7 @@ export default function Home() {
               <h4>Services à Domicile</h4>
               <p>
                 Pour les services à domicile, nous demandons un environnement calme et approprié.
-                Services disponibles à Val-des-Monts, Gatineau, ainsi qu'à Longueuil – Brossard et ses environs.
+                Services disponibles à Val-des-Monts, Gatineau, Longueuil, ainsi qu'à Brossard et dans les environs.
               </p>
             </div>
           </div>
@@ -751,7 +751,13 @@ export default function Home() {
                 <svg className="location-icon" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
-                Longueuil – Brossard et environs
+                Longueuil
+              </div>
+              <div className="location-badge">
+                <svg className="location-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                Brossard et les environs
               </div>
             </div>
             <div className="footer-contact" style={{ marginTop: '1rem' }}>
