@@ -3203,7 +3203,7 @@ section {
 /* Tutor student profiles */
 .tutor-page .students-grid {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
-  align-items: stretch;
+  align-items: start;
   gap: 1.25rem;
 }
 .student-count {
@@ -3297,4 +3297,50 @@ section {
 .student-profile-location address { font-style: normal; white-space: pre-line; }
 @media (max-width: 480px) {
   .student-profile { padding: 1.125rem; }
+}
+
+/* Native disclosures keep each student card compact and keyboard accessible. */
+.student-profile-summary {
+  display: block;
+  list-style: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.student-profile-summary::-webkit-details-marker { display: none; }
+.student-profile-summary::marker { content: ''; }
+.student-profile-summary .student-profile-header {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.student-profile-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  margin-top: 0.5rem;
+  color: #52715b;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.student-profile-summary:hover .student-profile-toggle { color: #23462f; }
+.student-profile-summary:focus-visible {
+  outline: 2px solid #2d6144;
+  outline-offset: 6px;
+}
+.student-profile-chevron { flex: none; transition: transform 180ms ease; }
+.student-profile-hide { display: none; }
+.student-profile[open] .student-profile-show { display: none; }
+.student-profile[open] .student-profile-hide { display: inline; }
+.student-profile[open] .student-profile-chevron { transform: rotate(180deg); }
+.student-profile[open] .student-profile-details {
+  padding-top: 1rem;
+  margin-top: 0;
+  border-top: 1px solid #e6e9e1;
+}
+.student-profile-field dt { display: flex; align-items: center; gap: 0.5rem; }
+.student-profile-field dt svg { flex: none; color: #66836c; }
+.student-profile-field dd { padding-left: 1.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  .student-profile-chevron { transition: none; }
 }

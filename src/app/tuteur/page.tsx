@@ -352,8 +352,9 @@ export default function TuteurPage() {
                         ) : (
                             <div className="students-grid">
                                 {assignedStudents.map(student => (
-                                    <article key={student.id} className="student-profile">
-                                        <header className="student-profile-header">
+                                    <details key={student.id} className="student-profile">
+                                        <summary className="student-profile-summary">
+                                        <div className="student-profile-header">
                                             <div className="student-profile-avatar" aria-hidden="true">
                                                 {(student.inscription?.student_name || student.email || '?').trim().charAt(0).toUpperCase()}
                                             </div>
@@ -369,20 +370,28 @@ export default function TuteurPage() {
                                                     </span>
                                                 )}
                                             </div>
-                                        </header>
+                                        </div>
+                                        <span className="student-profile-toggle">
+                                            <span className="student-profile-show">Voir les coordonnées</span>
+                                            <span className="student-profile-hide">Masquer les coordonnées</span>
+                                            <svg className="student-profile-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                                <path d="m6 9 6 6 6-6" />
+                                            </svg>
+                                        </span>
+                                        </summary>
                                         <dl className="student-profile-details">
                                             <div className="student-profile-field">
-                                                <dt>Parent ou responsable</dt>
+                                                <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3" /><path d="M5 21v-2a7 7 0 0 1 14 0v2" /></svg>Parent ou responsable</dt>
                                                 <dd>{student.inscription?.parent_name?.trim() || 'Non renseigné'}</dd>
                                             </div>
                                             <div className="student-profile-field">
-                                                <dt>Courriel</dt>
+                                                <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg>Courriel</dt>
                                                 <dd><a href={`mailto:${student.inscription?.email || student.email}`}>
                                                     {student.inscription?.email || student.email}
                                                 </a></dd>
                                             </div>
                                             <div className="student-profile-field">
-                                                <dt>Téléphone</dt>
+                                                <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z" /></svg>Téléphone</dt>
                                                 <dd>{student.inscription?.phone?.trim() ? (
                                                     <a href={`tel:${student.inscription.phone.replace(/[^+\d]/g, '')}`}>
                                                         {student.inscription.phone}
@@ -390,11 +399,11 @@ export default function TuteurPage() {
                                                 ) : 'Non renseigné'}</dd>
                                             </div>
                                             <div className="student-profile-field student-profile-location">
-                                                <dt>Adresse de l’élève</dt>
+                                                <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>Adresse de l’élève</dt>
                                                 <dd><address>{student.inscription?.address?.trim() || 'Non renseignée'}</address></dd>
                                             </div>
                                         </dl>
-                                    </article>
+                                    </details>
                                 ))}
                             </div>
                         )}
