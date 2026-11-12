@@ -121,11 +121,9 @@ export default function Home() {
         <div className="container">
           <div className="hero-content">
             <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
-              <Link href="/inscription" className="discount-badge">
-                <span style={{ fontSize: '1.5rem' }}>🎉</span>
-                <span>
-                  <span className="discount-highlight">25% DE RABAIS</span> sur la première rencontre!
-                </span>
+              <Link href="/inscription" className="discount-badge discount-badge--hero">
+                <strong className="discount-badge__offer">25&nbsp;% de rabais</strong>
+                <span className="discount-badge__detail">sur votre première rencontre</span>
               </Link>
             </div>
             <h1 className="pencil-title">Tuto+</h1>

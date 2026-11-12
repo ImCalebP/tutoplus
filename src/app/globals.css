@@ -580,6 +580,57 @@ section {
   text-transform: uppercase;
 }
 
+
+/* Offer in the hero: restrained typography, separate from the services badge. */
+.discount-badge--hero {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.75rem;
+  max-width: 100%;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #c8b67e;
+  background: #fffdf7;
+  box-shadow: 0 2px 8px rgba(32, 72, 49, 0.06);
+  animation: none;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  text-align: center;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.discount-badge--hero .discount-badge__offer {
+  color: var(--dark-green);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+}
+
+.discount-badge--hero .discount-badge__detail {
+  color: #526052;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.discount-badge--hero:hover {
+  background: #f5f3e9;
+  border-color: var(--dark-green);
+}
+
+.discount-badge--hero:focus-visible {
+  outline: 2px solid var(--dark-green);
+  outline-offset: 4px;
+}
+
+.discount-badge--hero:active {
+  background: #eeecdf;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discount-badge--hero {
+    transition: none;
+  }
+}
+
 /* Animated Background Lines */
 .hero-lines {
   position: absolute;
