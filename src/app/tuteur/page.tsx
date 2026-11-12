@@ -340,7 +340,7 @@ export default function TuteurPage() {
                     {/* Assigned Students */}
                     <div className="tutor-section students-section">
                         <div className="section-header-row">
-                            <h2>Mes Étudiants ({assignedStudents.length})</h2>
+                            <h2>Mes élèves <span className="student-count">{assignedStudents.length}</span></h2>
                         </div>
                         {studentsError ? (
                             <div role="alert" className="auth-error">{studentsError}</div>
@@ -352,33 +352,49 @@ export default function TuteurPage() {
                         ) : (
                             <div className="students-grid">
                                 {assignedStudents.map(student => (
-                                    <div key={student.id} className="student-card">
-                                        <div className="student-avatar">
-                                            {(student.inscription?.student_name || student.email)[0].toUpperCase()}
-                                        </div>
-                                        <div className="student-info">
-                                            <h3>{student.inscription?.student_name || 'Sans nom'}</h3>
-                                            <div className="student-contact">
-                                                {student.inscription?.parent_name && (
-                                                    <span>Parent : {student.inscription.parent_name}</span>
-                                                )}
-                                                <a href={`mailto:${student.inscription?.email || student.email}`} className="contact-link">
-                                                    Courriel : {student.inscription?.email || student.email}
-                                                </a>
-                                                {student.inscription?.phone && (
-                                                    <a href={`tel:${student.inscription.phone}`} className="contact-link">
-                                                        Téléphone : {student.inscription.phone}
-                                                    </a>
-                                                )}
-                                                <address className="student-contact-address">
-                                                    Adresse : {student.inscription?.address?.trim() || 'Non renseignée'}
-                                                </address>
+                                    <article key={student.id} className="student-profile">
+                                        <header className="student-profile-header">
+                                            <div className="student-profile-avatar" aria-hidden="true">
+                                                {(student.inscription?.student_name || student.email || '?').trim().charAt(0).toUpperCase()}
                                             </div>
-                                            {student.inscription && (
-                                                <span className="student-service">{student.inscription.service}</span>
-                                            )}
-                                        </div>
-                                    </div>
+                                            <div className="student-profile-heading">
+                                                <h3>{student.inscription?.student_name || 'Nom non renseigné'}</h3>
+                                                {student.inscription?.service && (
+                                                    <span className="student-profile-service">
+                                                        {({
+                                                            en_ligne: 'En ligne', online: 'En ligne',
+                                                            primaire: 'Primaire', secondaire: 'Secondaire',
+                                                            cegep: 'Cégep', orthopedagogie: 'Orthopédagogie'
+                                                        } as Record<string, string>)[student.inscription.service] || student.inscription.service}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </header>
+                                        <dl className="student-profile-details">
+                                            <div className="student-profile-field">
+                                                <dt>Parent ou responsable</dt>
+                                                <dd>{student.inscription?.parent_name?.trim() || 'Non renseigné'}</dd>
+                                            </div>
+                                            <div className="student-profile-field">
+                                                <dt>Courriel</dt>
+                                                <dd><a href={`mailto:${student.inscription?.email || student.email}`}>
+                                                    {student.inscription?.email || student.email}
+                                                </a></dd>
+                                            </div>
+                                            <div className="student-profile-field">
+                                                <dt>Téléphone</dt>
+                                                <dd>{student.inscription?.phone?.trim() ? (
+                                                    <a href={`tel:${student.inscription.phone.replace(/[^+\d]/g, '')}`}>
+                                                        {student.inscription.phone}
+                                                    </a>
+                                                ) : 'Non renseigné'}</dd>
+                                            </div>
+                                            <div className="student-profile-field student-profile-location">
+                                                <dt>Adresse de l’élève</dt>
+                                                <dd><address>{student.inscription?.address?.trim() || 'Non renseignée'}</address></dd>
+                                            </div>
+                                        </dl>
+                                    </article>
                                 ))}
                             </div>
                         )}

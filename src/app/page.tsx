@@ -397,7 +397,7 @@ export default function Home() {
 
           <div className="stats-container">
             <div className="stat-item">
-              <span className="stat-number">1&nbsp;000</span>
+              <span className="stat-number">1&nbsp;000+</span>
               <span className="stat-label">Heures d'Expérience</span>
             </div>
             <div className="stat-item">
