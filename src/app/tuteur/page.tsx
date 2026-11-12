@@ -31,6 +31,15 @@ export default function TuteurPage() {
     const [loading, setLoading] = useState(true);
     const [profile, setProfile] = useState<Profile | null>(null);
     const [assignedStudents, setAssignedStudents] = useState<AssignedStudent[]>([]);
+    const [expandedStudents, setExpandedStudents] = useState<Set<string>>(() => new Set());
+    const toggleStudent = (id: string) => {
+        setExpandedStudents(previous => {
+            const next = new Set(previous);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+        });
+    };
     const [studentsError, setStudentsError] = useState('');
     const [sessions, setSessions] = useState<TutoringSession[]>([]);
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -352,8 +361,7 @@ export default function TuteurPage() {
                         ) : (
                             <div className="students-grid">
                                 {assignedStudents.map(student => (
-                                    <details key={student.id} className="student-profile">
-                                        <summary className="student-profile-summary">
+                                    <article key={student.id} className="student-profile" data-expanded={expandedStudents.has(student.id)}>
                                         <div className="student-profile-header">
                                             <div className="student-profile-avatar" aria-hidden="true">
                                                 {(student.inscription?.student_name || student.email || '?').trim().charAt(0).toUpperCase()}
@@ -371,14 +379,27 @@ export default function TuteurPage() {
                                                 )}
                                             </div>
                                         </div>
-                                        <span className="student-profile-toggle">
+                                        <button
+                                            type="button"
+                                            className="student-profile-toggle"
+                                            aria-expanded={expandedStudents.has(student.id)}
+                                            aria-controls={`student-details-${student.id}`}
+                                            aria-label={`${expandedStudents.has(student.id) ? 'Masquer' : 'Afficher'} les coordonnées de ${student.inscription?.student_name || student.email}`}
+                                            onClick={() => toggleStudent(student.id)}
+                                        >
                                             <span className="student-profile-show">Voir les coordonnées</span>
                                             <span className="student-profile-hide">Masquer les coordonnées</span>
                                             <svg className="student-profile-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                                                 <path d="m6 9 6 6 6-6" />
                                             </svg>
-                                        </span>
-                                        </summary>
+                                        </button>
+                                        <div
+                                            id={`student-details-${student.id}`}
+                                            className="student-profile-reveal"
+                                            aria-hidden={!expandedStudents.has(student.id)}
+                                            inert={!expandedStudents.has(student.id)}
+                                        >
+                                        <div className="student-profile-reveal-inner">
                                         <dl className="student-profile-details">
                                             <div className="student-profile-field">
                                                 <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3" /><path d="M5 21v-2a7 7 0 0 1 14 0v2" /></svg>Parent ou responsable</dt>
@@ -403,7 +424,9 @@ export default function TuteurPage() {
                                                 <dd><address>{student.inscription?.address?.trim() || 'Non renseignée'}</address></dd>
                                             </div>
                                         </dl>
-                                    </details>
+                                        </div>
+                                        </div>
+                                    </article>
                                 ))}
                             </div>
                         )}

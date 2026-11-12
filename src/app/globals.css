@@ -3299,48 +3299,87 @@ section {
   .student-profile { padding: 1.125rem; }
 }
 
-/* Native disclosures keep each student card compact and keyboard accessible. */
-.student-profile-summary {
-  display: block;
-  list-style: none;
-  cursor: pointer;
-  border-radius: 8px;
+/* Animated student cards: intrinsic height, reversible in both directions. */
+.student-profile {
+  padding: 1.25rem 1.375rem 0.625rem;
+  background: #ffffff;
+  border: 1px solid #dde6dd;
+  border-radius: 20px;
+  box-shadow: 0 3px 12px rgba(30, 64, 41, 0.045);
+  transition: border-color 220ms ease, box-shadow 220ms ease;
 }
-.student-profile-summary::-webkit-details-marker { display: none; }
-.student-profile-summary::marker { content: ''; }
-.student-profile-summary .student-profile-header {
-  padding-bottom: 0;
-  border-bottom: 0;
+.student-profile:hover {
+  border-color: #adc3af;
+  box-shadow: 0 5px 18px rgba(30, 64, 41, 0.075);
+}
+.student-profile-header { padding-bottom: 0; border-bottom: 0; gap: 1rem; }
+.student-profile-avatar {
+  background: #2f6245;
+  color: #fffdf7;
+  border-radius: 16px;
+  height: 52px;
+  flex-basis: 52px;
+}
+.student-profile-heading h3 { font-size: 1.0625rem; letter-spacing: -0.02em; }
+.student-profile-service {
+  padding: 0.2rem 0.65rem;
+  background: #f5f0df;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #78612b;
 }
 .student-profile-toggle {
   display: flex;
+  width: 100%;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  gap: 0.75rem;
   min-height: 44px;
-  margin-top: 0.5rem;
+  padding: 0.625rem 0;
+  margin-top: 1rem;
+  border: 0;
+  border-top: 1px solid #edf0e9;
+  background: transparent;
   color: #52715b;
+  font: inherit;
   font-size: 0.75rem;
   font-weight: 500;
+  cursor: pointer;
+  text-align: left;
 }
-.student-profile-summary:hover .student-profile-toggle { color: #23462f; }
-.student-profile-summary:focus-visible {
+.student-profile-toggle:hover { color: #23462f; }
+.student-profile-toggle:focus-visible {
   outline: 2px solid #2d6144;
-  outline-offset: 6px;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
-.student-profile-chevron { flex: none; transition: transform 180ms ease; }
+.student-profile-chevron {
+  box-sizing: content-box;
+  padding: 5px;
+  border-radius: 50%;
+  background: #edf3ed;
+  flex: none;
+  transition: transform 400ms cubic-bezier(.22, 1, .36, 1);
+}
 .student-profile-hide { display: none; }
-.student-profile[open] .student-profile-show { display: none; }
-.student-profile[open] .student-profile-hide { display: inline; }
-.student-profile[open] .student-profile-chevron { transform: rotate(180deg); }
-.student-profile[open] .student-profile-details {
-  padding-top: 1rem;
-  margin-top: 0;
-  border-top: 1px solid #e6e9e1;
+.student-profile[data-expanded="true"] .student-profile-show { display: none; }
+.student-profile[data-expanded="true"] .student-profile-hide { display: inline; }
+.student-profile[data-expanded="true"] .student-profile-chevron { transform: rotate(180deg); }
+.student-profile-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 420ms cubic-bezier(.22, 1, .36, 1), opacity 300ms ease;
 }
+.student-profile[data-expanded="true"] .student-profile-reveal { grid-template-rows: 1fr; opacity: 1; }
+.student-profile-reveal-inner { min-height: 0; overflow: hidden; }
+.student-profile-details { margin: 0; padding: 0.75rem 0 1rem; }
 .student-profile-field dt { display: flex; align-items: center; gap: 0.5rem; }
 .student-profile-field dt svg { flex: none; color: #66836c; }
 .student-profile-field dd { padding-left: 1.5rem; }
+@media (max-width: 480px) {
+  .student-profile { padding: 1.125rem 1.125rem 0.5rem; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .student-profile-chevron { transition: none; }
+  .student-profile, .student-profile-reveal, .student-profile-chevron { transition: none; }
 }
