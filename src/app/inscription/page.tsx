@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -23,6 +23,13 @@ export default function InscriptionPage() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [acceptTerms, setAcceptTerms] = useState(false);
+
+    useEffect(() => {
+        const service = new URLSearchParams(window.location.search).get('service');
+        if (service && ['primaire', 'secondaire', 'cegep', 'online', 'cegep_online', 'orthopedagogie'].includes(service)) {
+            setFormData(previous => ({ ...previous, service }));
+        }
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -244,7 +251,7 @@ export default function InscriptionPage() {
                                         required
                                     >
                                         <option value="">Sélectionnez un service</option>
-                                        <option value="online">En Ligne - 38$</option>
+                                        <option value="online">Primaire / Secondaire en ligne - 38$</option>
                                         <option value="primaire">Primaire Présentiel - 43$</option>
                                         <option value="secondaire">Secondaire Présentiel - 45$</option>
                                         <option value="cegep_online">Cégep En Ligne - 40$</option>

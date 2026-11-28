@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CookieConsent from '@/components/CookieConsent';
+import PricingSection from '@/components/ui/pricing-4';
 
 export default function Home() {
   const [showStickyButton, setShowStickyButton] = useState(false);
@@ -187,143 +188,9 @@ export default function Home() {
             </div>
           </div>
 
+          <PricingSection />
+
           <div className="services-grid">
-            <div className="service-card">
-              <div className="service-icon-wrapper">
-                <svg className="service-icon" viewBox="0 0 24 24">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <path d="M8 21h8M12 17v4" />
-                </svg>
-              </div>
-              <h3 className="service-title">En Ligne</h3>
-              <span className="service-price">38$</span>
-              <p className="service-description">
-                Séances de tutorat virtuelles flexibles pour tous les niveaux. Apprenez confortablement de chez vous avec des outils interactifs modernes.
-              </p>
-              <ul className="service-features">
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Horaires flexibles
-                </li>
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Outils interactifs
-                </li>
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Tous niveaux
-                </li>
-              </ul>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon-wrapper">
-                <svg className="service-icon" viewBox="0 0 24 24">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                </svg>
-              </div>
-              <h3 className="service-title">Primaire Présentiel</h3>
-              <span className="service-price">43$</span>
-              <p className="service-description">
-                Accompagnement personnalisé à domicile pour les élèves du primaire. Renforcement des bases et aide aux devoirs dans un environnement familier.
-              </p>
-              <ul className="service-features">
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  À domicile
-                </li>
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Aide aux devoirs
-                </li>
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Renforcement des bases
-                </li>
-              </ul>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon-wrapper">
-                <svg className="service-icon" viewBox="0 0 24 24">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                </svg>
-              </div>
-              <h3 className="service-title">Secondaire Présentiel</h3>
-              <span className="service-price">45$</span>
-              <p className="service-description">
-                Soutien académique à domicile pour les élèves du secondaire. Préparation aux examens et maîtrise des matières complexes.
-              </p>
-              <ul className="service-features">
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Toutes matières
-                </li>
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Préparation examens
-                </li>
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Méthodologie
-                </li>
-              </ul>
-            </div>
-
-            <div className="service-card">
-              <div className="service-icon-wrapper">
-                <svg className="service-icon" viewBox="0 0 24 24">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                </svg>
-              </div>
-              <h3 className="service-title">Cégep</h3>
-              <span className="service-price">40-45$</span>
-              <p className="service-description">
-                Tutorat spécialisé pour étudiants du cégep, disponible en présentiel ou en ligne. Expertise dans les matières avancées.
-              </p>
-              <ul className="service-features">
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Présentiel & en ligne
-                </li>
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Matières avancées
-                </li>
-                <li>
-                  <svg className="check-icon" viewBox="0 0 24 24">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Expertise spécialisée
-                </li>
-              </ul>
-            </div>
-
             <div className="service-card full-width" style={{ border: '2px solid var(--primary-gold)', background: 'linear-gradient(to right, #ffffff, #faf8f4)' }}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
                 <div style={{ flex: '1', minWidth: '280px' }}>
